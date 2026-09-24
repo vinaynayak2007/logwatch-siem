@@ -1,0 +1,116 @@
+<svg width="1500" height="1930" viewBox="0 0 1500 1930" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#161b22"/><stop offset="100%" stop-color="#0d1117"/>
+</linearGradient></defs>
+<rect width="1500" height="1930" rx="10" fill="url(#bg)" stroke="#30363d"/>
+<rect width="1500" height="34" rx="10" fill="#21262d"/>
+<rect y="24" width="1500" height="10" fill="#21262d"/>
+<line x1="0" y1="34" x2="1500" y2="34" stroke="#30363d"/>
+<circle cx="18" cy="17" r="5.2" fill="#ff5f57"/>
+<circle cx="36" cy="17" r="5.2" fill="#febc2e"/>
+<circle cx="54" cy="17" r="5.2" fill="#28c840"/>
+<text x="750.0" y="22" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#8b949e">python cli.py analyse examples/logs/ --year 2026</text>
+<text x="20" y="56" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="74" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">  ┌───────────────────────────────────────────────────────────┐</text>
+<text x="20" y="92" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">  │  logwatch-siem                                            │</text>
+<text x="20" y="110" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">  │  log analysis + intrusion detection  ·  v1.0.0            │</text>
+<text x="20" y="128" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">  └───────────────────────────────────────────────────────────┘</text>
+<text x="20" y="146" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="164" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="182" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="200" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">  LOGWATCH-SIEM  ·  log analysis report</text>
+<text x="20" y="218" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="236" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  Files       3</text>
+<text x="20" y="254" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  Lines       176 read · 176 events</text>
+<text x="20" y="272" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  Window      2026-09-18 02:00:00 → 2026-09-18 02:55:12  (55 min)</text>
+<text x="20" y="290" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#f85149">  Verdict     ✖ COMPROMISED   18 alerts · score 367</text>
+<text x="20" y="308" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="326" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="344" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">  ACTIVITY</text>
+<text x="20" y="362" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="380" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  Authentication failures   64</text>
+<text x="20" y="398" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  Authentication successes  2</text>
+<text x="20" y="416" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  Unique source IPs         9</text>
+<text x="20" y="434" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  Parsed by format          web 94, auth 60, syslog 22</text>
+<text x="20" y="452" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="470" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="488" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">  ALERTS BY SEVERITY</text>
+<text x="20" y="506" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="524" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  ✖ 1 critical  ✖ 10 high  ! 6 medium  · 1 low</text>
+<text x="20" y="542" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="560" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="578" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">  TOP SOURCES</text>
+<text x="20" y="596" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="614" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  203.0.113.45         3 alert(s)</text>
+<text x="20" y="632" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  198.51.100.77        2 alert(s)</text>
+<text x="20" y="650" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  203.0.113.90         2 alert(s)</text>
+<text x="20" y="668" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  198.51.100.5         2 alert(s)</text>
+<text x="20" y="686" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  192.168.1.10         1 alert(s)</text>
+<text x="20" y="704" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  192.0.2.200          1 alert(s)</text>
+<text x="20" y="722" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="740" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="758" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">  ALERTS  ·  18</text>
+<text x="20" y="776" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="794" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="812" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#f85149">  [CRITICAL] Successful SSH login after repeated failures  score 40</text>
+<text x="20" y="830" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1078 (Valid Accounts)</text>
+<text x="20" y="848" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      &#x27;deploy&#x27; logged in successfully from 203.0.113.45 immediately after 39 failed attempts — credentials may be compromised. Authentication method: password. Previously targeted accounts: admin, deploy, oracle, postgres, root, test</text>
+<text x="20" y="866" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      ip=203.0.113.45  user=deploy</text>
+<text x="20" y="884" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      first 2026-09-18 02:00:00  last 2026-09-18 02:01:52  (40 event(s))</text>
+<text x="20" y="902" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      evidence:</text>
+<text x="20" y="920" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:01:19  Sep 18 02:01:19 web-srv-01 sshd[20481]: Failed password for admin from 203.0.113.45 port 58769 s</text>
+<text x="20" y="938" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:01:21  Sep 18 02:01:21 web-srv-01 sshd[20481]: Failed password for vinay from 203.0.113.45 port 41791 s</text>
+<text x="20" y="956" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:01:25  Sep 18 02:01:25 web-srv-01 sshd[20481]: Failed password for admin from 203.0.113.45 port 49530 s</text>
+<text x="20" y="974" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="992" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#f0883e">  [HIGH]     SSH brute-force attack  score 25</text>
+<text x="20" y="1010" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1110.001 (Brute Force: Password Guessing)</text>
+<text x="20" y="1028" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      8 failed SSH logins from 203.0.113.45 in 23s, targeting 7 username(s): admin, oracle, postgres, root, test (+2 more)</text>
+<text x="20" y="1046" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      ip=203.0.113.45</text>
+<text x="20" y="1064" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      first 2026-09-18 02:00:00  last 2026-09-18 02:00:23  (8 event(s))</text>
+<text x="20" y="1082" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      evidence:</text>
+<text x="20" y="1100" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:00:00  Sep 18 02:00:00 web-srv-01 sshd[20481]: Invalid user admin from 203.0.113.45 port 50094</text>
+<text x="20" y="1118" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:00:03  Sep 18 02:00:03 web-srv-01 sshd[20481]: Invalid user test from 203.0.113.45 port 41653</text>
+<text x="20" y="1136" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:00:09  Sep 18 02:00:09 web-srv-01 sshd[20481]: Invalid user oracle from 203.0.113.45 port 54129</text>
+<text x="20" y="1154" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="1172" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#f0883e">  [HIGH]     Suspicious privilege escalation  score 25</text>
+<text x="20" y="1190" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1548.003 (Sudo and Sudo Caching)</text>
+<text x="20" y="1208" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      &#x27;deploy&#x27; used sudo to run a command that spawned an interactive root shell: /bin/bash</text>
+<text x="20" y="1226" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      user=deploy</text>
+<text x="20" y="1244" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      first 2026-09-18 02:04:52  last 2026-09-18 02:04:52  (1 event(s))</text>
+<text x="20" y="1262" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      evidence:</text>
+<text x="20" y="1280" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:04:52  Sep 18 02:04:52 web-srv-01 sudo:   deploy : TTY=pts/2 ; PWD=/home/deploy ; USER=root ; COMMAND=/</text>
+<text x="20" y="1298" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="1316" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#f0883e">  [HIGH]     SSH brute-force attack  score 25</text>
+<text x="20" y="1334" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1110.001 (Brute Force: Password Guessing)</text>
+<text x="20" y="1352" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      8 failed SSH logins from 198.51.100.77 in 12s, targeting 8 username(s): elastic, gitlab, grafana, hadoop, jenkins (+3 more)</text>
+<text x="20" y="1370" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      ip=198.51.100.77</text>
+<text x="20" y="1388" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      first 2026-09-18 02:25:00  last 2026-09-18 02:25:12  (8 event(s))</text>
+<text x="20" y="1406" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      evidence:</text>
+<text x="20" y="1424" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:25:00  Sep 18 02:25:00 web-srv-01 sshd[23110]: Invalid user jenkins from 198.51.100.77 port 45337</text>
+<text x="20" y="1442" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:25:01  Sep 18 02:25:01 web-srv-01 sshd[23110]: Invalid user gitlab from 198.51.100.77 port 53819</text>
+<text x="20" y="1460" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:25:02  Sep 18 02:25:02 web-srv-01 sshd[23110]: Invalid user hadoop from 198.51.100.77 port 40579</text>
+<text x="20" y="1478" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="1496" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#f0883e">  [HIGH]     Web application attack probe  score 25</text>
+<text x="20" y="1514" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1190 (Exploit Public-Facing Application)</text>
+<text x="20" y="1532" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      1 malicious request(s) — SQL injection probe, known-vulnerable endpoint probe — scanner identified: sqlmap. Latest: GET /admin.php?id=1%27%20OR%20%271%27=%271</text>
+<text x="20" y="1550" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      ip=203.0.113.90</text>
+<text x="20" y="1568" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      first 2026-09-18 02:30:00  last 2026-09-18 02:30:00  (1 event(s))</text>
+<text x="20" y="1586" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      evidence:</text>
+<text x="20" y="1604" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:30:00  203.0.113.90 - - [18/Sep/2026:02:30:00 +0000] &quot;GET /admin.php?id=1%27%20OR%20%271%27=%271 HTTP/1</text>
+<text x="20" y="1622" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="1640" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#f0883e">  [HIGH]     Web application attack probe  score 25</text>
+<text x="20" y="1658" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1190 (Exploit Public-Facing Application)</text>
+<text x="20" y="1676" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      1 malicious request(s) — scanner identified: gobuster. Latest: GET /api/v1/users</text>
+<text x="20" y="1694" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      ip=198.51.100.5</text>
+<text x="20" y="1712" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      first 2026-09-18 02:35:00  last 2026-09-18 02:35:00  (1 event(s))</text>
+<text x="20" y="1730" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      evidence:</text>
+<text x="20" y="1748" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">        2026-09-18 02:35:00  198.51.100.5 - - [18/Sep/2026:02:35:00 +0000] &quot;GET /api/v1/users HTTP/1.1&quot; 404 153 &quot;-&quot; &quot;gobuster</text>
+<text x="20" y="1766" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="1784" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  ... 12 more alert(s) — see the JSON or HTML report</text>
+<text x="20" y="1802" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="1820" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="1838" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  A successful login followed suspicious activity — treat as an incident and investigate the account now.</text>
+<text x="20" y="1856" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">────────────────────────────────────────────────────────────────────────</text>
+<text x="20" y="1874" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="1892" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#f85149">    176 events · 18 alert(s) · 0.01s · verdict: COMPROMISED</text>
+</svg>
