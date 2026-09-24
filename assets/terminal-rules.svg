@@ -1,0 +1,63 @@
+<svg width="593" height="976" viewBox="0 0 593 976" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#161b22"/><stop offset="100%" stop-color="#0d1117"/>
+</linearGradient></defs>
+<rect width="593" height="976" rx="10" fill="url(#bg)" stroke="#30363d"/>
+<rect width="593" height="34" rx="10" fill="#21262d"/>
+<rect y="24" width="593" height="10" fill="#21262d"/>
+<line x1="0" y1="34" x2="593" y2="34" stroke="#30363d"/>
+<circle cx="18" cy="17" r="5.2" fill="#ff5f57"/>
+<circle cx="36" cy="17" r="5.2" fill="#febc2e"/>
+<circle cx="54" cy="17" r="5.2" fill="#28c840"/>
+<text x="296.5" y="22" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#8b949e">python cli.py rules</text>
+<text x="20" y="56" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="74" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">  DETECTION RULES  ·  15 available</text>
+<text x="20" y="92" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  --------------------------------------------------------------------</text>
+<text x="20" y="110" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [critical] successful_login_after_failures</text>
+<text x="20" y="128" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Successful SSH login after repeated failures</text>
+<text x="20" y="146" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1078 (Valid Accounts)</text>
+<text x="20" y="164" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [high]     root_login</text>
+<text x="20" y="182" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Direct root login</text>
+<text x="20" y="200" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1078.003 (Local Accounts)</text>
+<text x="20" y="218" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [high]     ssh_brute_force</text>
+<text x="20" y="236" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      SSH brute-force attack</text>
+<text x="20" y="254" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1110.001 (Brute Force: Password Guessing)</text>
+<text x="20" y="272" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [medium]   user_enumeration</text>
+<text x="20" y="290" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Username enumeration</text>
+<text x="20" y="308" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1087 (Account Discovery)</text>
+<text x="20" y="326" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [high]     distributed_brute_force</text>
+<text x="20" y="344" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Distributed brute-force across multiple sources</text>
+<text x="20" y="362" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1110 (Brute Force)</text>
+<text x="20" y="380" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [high]     suspicious_sudo</text>
+<text x="20" y="398" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Suspicious privilege escalation</text>
+<text x="20" y="416" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1548.003 (Sudo and Sudo Caching)</text>
+<text x="20" y="434" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [medium]   repeated_sudo_failures</text>
+<text x="20" y="452" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Repeated sudo authentication failures</text>
+<text x="20" y="470" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1110 (Brute Force)</text>
+<text x="20" y="488" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [medium]   account_created</text>
+<text x="20" y="506" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      New user account created</text>
+<text x="20" y="524" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1136.001 (Create Account: Local Account)</text>
+<text x="20" y="542" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [low]      password_changed</text>
+<text x="20" y="560" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Account password changed</text>
+<text x="20" y="578" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1098 (Account Manipulation)</text>
+<text x="20" y="596" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [high]     web_attack_probe</text>
+<text x="20" y="614" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Web application attack probe</text>
+<text x="20" y="632" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1190 (Exploit Public-Facing Application)</text>
+<text x="20" y="650" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [high]     web_login_brute_force</text>
+<text x="20" y="668" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Web login brute-force</text>
+<text x="20" y="686" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1110.001 (Brute Force: Password Guessing)</text>
+<text x="20" y="704" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [medium]   directory_scanning</text>
+<text x="20" y="722" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Directory brute-force scanning</text>
+<text x="20" y="740" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1083 (File and Directory Discovery)</text>
+<text x="20" y="758" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [medium]   high_request_rate</text>
+<text x="20" y="776" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Abnormal request volume</text>
+<text x="20" y="794" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1498 (Network Denial of Service)</text>
+<text x="20" y="812" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [medium]   firewall_port_scan</text>
+<text x="20" y="830" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Port scan detected by firewall</text>
+<text x="20" y="848" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1046 (Network Service Discovery)</text>
+<text x="20" y="866" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  [medium]   port_scan_by_drops</text>
+<text x="20" y="884" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">      Port scan inferred from firewall drops</text>
+<text x="20" y="902" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#0ea5e9">      T1046 (Network Service Discovery)</text>
+<text x="20" y="920" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9"></text>
+<text x="20" y="938" xml:space="preserve" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#c9d1d9">  enable a subset with:  --only successful_login_after_failures,root_login</text>
+</svg>
